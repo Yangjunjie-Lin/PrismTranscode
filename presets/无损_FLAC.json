@@ -1,0 +1,30 @@
+{
+  "schema": "prism-preset/1",
+  "version": "2.0.0",
+  "options": {
+    "target": "flac",
+    "input_format": "auto",
+    "quality": "high",
+    "auto_copy": true,
+    "keep_metadata": true,
+    "verify": true,
+    "checksum": true,
+    "audio_bitrate": 0,
+    "sample_rate": 0,
+    "bit_depth": 0,
+    "channels": 0,
+    "audio_stream": -1,
+    "subtitle_stream": -1,
+    "all_audio": false,
+    "resolution": 0,
+    "fps": 0,
+    "start": 0,
+    "duration": 0,
+    "hardware": "software",
+    "fallback": true,
+    "threads": 2,
+    "collision": "rename",
+    "preserve_folders": false,
+    "suffix": ""
+  }
+}

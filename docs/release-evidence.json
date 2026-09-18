@@ -1,0 +1,316 @@
+{
+  "version": "2.1.0-beta.1",
+  "generated": "2026-09-18T00:54:12.300Z",
+  "platform": "Windows x64",
+  "go": "1.27.1",
+  "native": {
+    "testedAt": "2026-09-18T01:32:20+0100",
+    "environment": "ffmpeg version N-126626-g7070fe638e-20260917 Copyright (c) 2000-2026 the FFmpeg developers",
+    "passed": 59,
+    "failed": 0,
+    "tests": [
+      {
+        "name": "Fixture contains real low-order 24-bit sample information",
+        "passed": true
+      },
+      {
+        "name": "38 output presets",
+        "passed": true
+      },
+      {
+        "name": "Content detection despite misleading extension",
+        "passed": true
+      },
+      {
+        "name": "output mp3",
+        "passed": true
+      },
+      {
+        "name": "output m4a",
+        "passed": true
+      },
+      {
+        "name": "output aac",
+        "passed": true
+      },
+      {
+        "name": "output flac",
+        "passed": true
+      },
+      {
+        "name": "output wav",
+        "passed": true
+      },
+      {
+        "name": "output alac",
+        "passed": true
+      },
+      {
+        "name": "output aiff",
+        "passed": true
+      },
+      {
+        "name": "output ogg",
+        "passed": true
+      },
+      {
+        "name": "output opus",
+        "passed": true
+      },
+      {
+        "name": "output wma",
+        "passed": true
+      },
+      {
+        "name": "output ac3",
+        "passed": true
+      },
+      {
+        "name": "output wv",
+        "passed": true
+      },
+      {
+        "name": "output copy_audio",
+        "passed": true
+      },
+      {
+        "name": "output mp4",
+        "passed": true
+      },
+      {
+        "name": "output mp4_hevc",
+        "passed": true
+      },
+      {
+        "name": "output mp4_av1",
+        "passed": true
+      },
+      {
+        "name": "output mkv",
+        "passed": true
+      },
+      {
+        "name": "output webm",
+        "passed": true
+      },
+      {
+        "name": "output webm_av1",
+        "passed": true
+      },
+      {
+        "name": "output mov_prores",
+        "passed": true
+      },
+      {
+        "name": "output mkv_ffv1",
+        "passed": true
+      },
+      {
+        "name": "output avi",
+        "passed": true
+      },
+      {
+        "name": "output mpeg",
+        "passed": true
+      },
+      {
+        "name": "output ts",
+        "passed": true
+      },
+      {
+        "name": "output remux_mp4",
+        "passed": true
+      },
+      {
+        "name": "output remux_mkv",
+        "passed": true
+      },
+      {
+        "name": "output png",
+        "passed": true
+      },
+      {
+        "name": "output jpg",
+        "passed": true
+      },
+      {
+        "name": "output webp",
+        "passed": true
+      },
+      {
+        "name": "output webp_lossless",
+        "passed": true
+      },
+      {
+        "name": "output avif",
+        "passed": true
+      },
+      {
+        "name": "output jxl",
+        "passed": true
+      },
+      {
+        "name": "output tiff",
+        "passed": true
+      },
+      {
+        "name": "output bmp",
+        "passed": true
+      },
+      {
+        "name": "output gif",
+        "passed": true
+      },
+      {
+        "name": "output srt",
+        "passed": true
+      },
+      {
+        "name": "output vtt",
+        "passed": true
+      },
+      {
+        "name": "output ass",
+        "passed": true
+      },
+      {
+        "name": "24-bit WAV to FLAC: decoded PCM exact equality",
+        "passed": true
+      },
+      {
+        "name": "RGBA PNG to TIFF: decoded pixels exact equality",
+        "passed": true
+      },
+      {
+        "name": "RGBA PNG to PNG: decoded pixels exact equality",
+        "passed": true
+      },
+      {
+        "name": "RGBA PNG to lossless WebP: decoded pixels exact equality",
+        "passed": true
+      },
+      {
+        "name": "AVIF content is correctly classified as image",
+        "passed": true
+      },
+      {
+        "name": "MP4 to MKV remux: video packets exact equality",
+        "passed": true
+      },
+      {
+        "name": "MP4 to MKV remux: audio packets exact equality",
+        "passed": true
+      },
+      {
+        "name": "NCM MP3 extraction: audio packets exact equality",
+        "passed": true
+      },
+      {
+        "name": "测试_mp3.ncm -> mp3",
+        "passed": true
+      },
+      {
+        "name": "测试_flac.ncm -> flac",
+        "passed": true
+      },
+      {
+        "name": "测试_flac.ncm -> mp3",
+        "passed": true
+      },
+      {
+        "name": "SoXR high-precision resampling",
+        "passed": true
+      },
+      {
+        "name": "Never overwrite original, including same extension",
+        "passed": true
+      },
+      {
+        "name": "Skip collision policy",
+        "passed": true
+      },
+      {
+        "name": "NVENC unavailable -> disclosed CPU fallback",
+        "passed": true
+      },
+      {
+        "name": "Damaged input does not abort parallel batch",
+        "passed": true
+      },
+      {
+        "name": "Cancellation removes uncommitted output",
+        "passed": true
+      },
+      {
+        "name": "Queue restored after process restart",
+        "passed": true
+      }
+    ]
+  },
+  "desktopBrowser": {
+    "testedAt": "2026-09-18T01:47:06+0100",
+    "environment": "win32 + Playwright Chromium; native OS dialogs not covered",
+    "passed": 12,
+    "failed": 0,
+    "tests": [
+      {
+        "name": "Desktop application initializes",
+        "passed": true
+      },
+      {
+        "name": "Batch path import with Unicode filenames",
+        "passed": true
+      },
+      {
+        "name": "Independent per-file output format selection",
+        "passed": true
+      },
+      {
+        "name": "Browser file import writes only local cache",
+        "passed": true
+      },
+      {
+        "name": "Mixed-media batch finishes through GUI",
+        "passed": true
+      },
+      {
+        "name": "Details show real media streams and SHA-256",
+        "passed": true
+      },
+      {
+        "name": "JSON export is downloadable",
+        "passed": true
+      },
+      {
+        "name": "Engine capability detection exposed",
+        "passed": true
+      },
+      {
+        "name": "Desktop has no horizontal viewport overflow",
+        "passed": true
+      },
+      {
+        "name": "Mobile viewport has no page overflow",
+        "passed": true
+      },
+      {
+        "name": "No browser JavaScript exceptions",
+        "passed": true
+      },
+      {
+        "name": "No media or UI requests to external hosts",
+        "passed": true
+      }
+    ]
+  },
+  "online": {
+    "engine": "@ffmpeg/core 0.12.10",
+    "tests": "npm run test:e2e: 5 scenarios, including all 14 output presets",
+    "unitTests": 7
+  },
+  "security": {
+    "govulncheck": "No vulnerabilities found",
+    "npmAudit": "0 vulnerabilities; does not scan embedded C/C++ codecs",
+    "codeSigned": false
+  }
+}

@@ -1,0 +1,43 @@
+name: Release
+on:
+  push:
+    tags: ['v*']
+permissions:
+  contents: read
+jobs:
+  checks:
+    uses: ./.github/workflows/ci.yml
+  release:
+    needs: checks
+    runs-on: windows-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-go@v5
+        with:
+          go-version: '1.27.1'
+          cache: false
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: npm
+      - run: ./scripts/build_windows.ps1
+      - shell: pwsh
+        run: ./scripts/package_windows.ps1 -Version $env:GITHUB_REF_NAME.Substring(1)
+      - run: npm ci
+      - run: node scripts/bundle-wasm-sources.mjs
+      - run: tar -cf artifacts/FFmpeg-WASM-source-bundle.tar -C artifacts/wasm-sources .
+      - name: Publish release assets
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          $tag = $env:GITHUB_REF_NAME
+          $sourceHash = (Get-FileHash artifacts/FFmpeg-WASM-source-bundle.tar -Algorithm SHA256).Hash.ToLower()
+          "$sourceHash  FFmpeg-WASM-source-bundle.tar" | Add-Content artifacts/SHA256SUMS.txt -Encoding utf8
+          $releaseArgs = @('release', 'create', $tag, '--verify-tag', '--title', "PrismTranscode $tag", '--notes-file', 'docs/RELEASE_NOTES.md')
+          if ($tag.Contains('-')) { $releaseArgs += '--prerelease' }
+          $releaseArgs += (Get-ChildItem artifacts -File | Where-Object { $_.Name -match '\.(zip|tar|json|txt)$' }).FullName
+          & gh @releaseArgs
+          if ($LASTEXITCODE -ne 0) { throw 'Release publishing failed' }

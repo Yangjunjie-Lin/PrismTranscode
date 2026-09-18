@@ -1,0 +1,13 @@
+.git
+.github
+.cache
+artifacts
+dist
+test-results
+playwright-report
+node_modules
+online/dist
+online/public/engine
+docs/test-reports
+testdata
+*.exe
