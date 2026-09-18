@@ -35,7 +35,7 @@ go vet ./...
 go run . --no-browser --ffmpeg /path/to/ffmpeg --data-dir ./dev-data
 ```
 
-在线版（Node.js ≥22.12）：
+在线版（Node.js 24 LTS）：
 
 ```sh
 npm ci

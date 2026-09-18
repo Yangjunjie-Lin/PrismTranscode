@@ -11,7 +11,9 @@ const sources = [
   ['ffmpegwasm/zlib', 'v1.2.11'], ['ffmpegwasm/libwebp', 'v1.3.2'],
   ['ffmpegwasm/freetype2', 'VER-2-10-4'], ['fribidi/fribidi', 'v1.0.9'],
   ['harfbuzz/harfbuzz', '5.2.0'], ['libass/libass', '0.15.0'],
-  ['sekrit-twc/zimg', 'release-3.0.5'], ['libsdl-org/SDL', 'release-2.0.20'],
+  ['sekrit-twc/zimg', 'release-3.0.5'], ['libsdl-org/SDL', 'release-2.24.2'],
+  ['google/googletest', '703bd9caab50b139428cea1aaff9974ebee5742e'],
+  ['emscripten-core/emscripten', '3.1.40'],
 ];
 const dest = new URL('../artifacts/wasm-sources/', import.meta.url);
 await mkdir(dest, { recursive: true });

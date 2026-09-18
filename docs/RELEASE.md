@@ -10,6 +10,8 @@ Go 单元测试、vet、govulncheck 和 npm audit 已本地运行。浏览器测
 
 在线版 7 项单元测试、5 组浏览器 E2E（含 14/14 预设真实转换）通过；桌面 Windows 浏览器 GUI 验收 12/12 通过。脱敏证据见 release-evidence.json。
 
+2026-09-18：已部署 https://prismtranscode.vercel.app，并在生产 HTTPS/CSP 环境重新运行全部 5 组浏览器 E2E，通过。源码仓库已连接 Vercel，推送 main 会自动触发部署。
+
 ## 本地验证
 
 ```sh

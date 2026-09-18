@@ -23,6 +23,7 @@ jobs:
           node-version: '24'
           cache: npm
       - run: ./scripts/build_windows.ps1
+      - run: python scripts/runtime_windows_test.py --binary dist/PrismTranscode.exe
       - shell: pwsh
         run: ./scripts/package_windows.ps1 -Version $env:GITHUB_REF_NAME.Substring(1)
       - run: npm ci

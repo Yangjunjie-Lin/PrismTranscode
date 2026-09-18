@@ -11,3 +11,5 @@ online/public/engine
 docs/test-reports
 testdata
 *.exe
+.env
+.env.*
