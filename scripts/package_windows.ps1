@@ -7,9 +7,9 @@ $stage = Join-Path $Root "artifacts/PrismTranscode-Windows-x64-$Version"
 if (Test-Path -LiteralPath $stage) { throw "Packaging directory already exists: $stage. Choose a new version or inspect it manually." }
 New-Item -ItemType Directory -Path $stage | Out-Null
 Copy-Item -LiteralPath $binary -Destination $stage
-foreach ($name in @('LICENSE', 'README.md', 'DESKTOP.md', 'SECURITY.md', 'THIRD_PARTY_NOTICES.md', 'CHANGELOG.md', 'licenses', 'presets')) { Copy-Item -LiteralPath (Join-Path $Root $name) -Destination $stage -Recurse }
+foreach ($name in @('LICENSE', 'README.md', 'README.en.md', 'DESKTOP.md', 'DESKTOP.en.md', 'SECURITY.md', 'SECURITY.en.md', 'THIRD_PARTY_NOTICES.md', 'THIRD_PARTY_NOTICES.en.md', 'CHANGELOG.md', 'licenses', 'presets')) { Copy-Item -LiteralPath (Join-Path $Root $name) -Destination $stage -Recurse }
 New-Item -ItemType Directory -Path (Join-Path $stage 'docs') | Out-Null
-foreach ($name in @('RELEASE.md', 'FORMATS_QUALITY.md', 'API.md', 'ARCHITECTURE.md')) { Copy-Item -LiteralPath (Join-Path $Root "docs/$name") -Destination (Join-Path $stage 'docs') }
+foreach ($name in @('RELEASE.md', 'FORMATS_QUALITY.md', 'API.md', 'ARCHITECTURE.md', 'USAGE.zh-CN.md', 'USAGE.en.md')) { Copy-Item -LiteralPath (Join-Path $Root "docs/$name") -Destination (Join-Path $stage 'docs') }
 $archive = Join-Path $Root "artifacts/PrismTranscode-Windows-x64-$Version.zip"
 Compress-Archive -LiteralPath $stage -DestinationPath $archive
 $sha = (Get-FileHash -LiteralPath $archive -Algorithm SHA256).Hash.ToLower()

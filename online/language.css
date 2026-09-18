@@ -1,0 +1,32 @@
+.translated-lines { white-space: pre-line; }
+.language-select { width: 142px; flex-shrink: 0; padding: 9px 10px; font-size: 11px; background: #fff; }
+.header nav { gap: 20px; }
+.panel-heading h3 b, summary b, .start-button b { font-weight: inherit; }
+.guide-link { font-size: 12px; color: var(--blue); display: inline-block; margin-top: 6px; }
+.queue-toolbar > span { min-width: 0; }
+.queue-toolbar button, .queue-bottom button { flex-shrink: 0; }
+html[lang=en] .hero h1 { letter-spacing: -.045em; font-size: clamp(34px, 3.5vw, 50px); }
+html[lang=en] .hint { min-height: 45px; }
+html[lang=en] .job { grid-template-columns: 38px minmax(0, 1fr) 124px; }
+@media (max-width: 1100px) {
+  .header { gap: 20px; flex-wrap: wrap; }
+  .header nav { gap: 16px; flex-wrap: wrap; }
+}
+@media (max-width: 760px) {
+  .header { gap: 12px; }
+  .header nav { margin-left: auto; gap: 10px; }
+  .language-select { width: 130px; font-size: 10px; }
+  html[lang=en] .header .brand { font-size: 14px; }
+  html[lang=en] .hero-badges { gap: 12px; flex-wrap: wrap; }
+  html[lang=en] .workspace-heading h2 { font-size: 20px; }
+  html[lang=en] .job { grid-template-columns: 29px minmax(0, 1fr) 109px; }
+  .queue-toolbar, .queue-bottom { gap: 12px; }
+  .dropzone small { line-height: 1.8; max-width: 100%; }
+}
+@media (max-width: 380px) {
+  .header { padding-inline: 16px; }
+  .header nav { width: 100%; justify-content: space-between; }
+  .queue-bottom { flex-wrap: wrap; }
+  html[lang=en] .workspace-heading h2 { font-size: 18px; }
+  html[lang=en] .beta { display: inline-block; margin: 8px 0 0; }
+}

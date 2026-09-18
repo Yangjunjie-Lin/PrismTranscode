@@ -2,36 +2,62 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <meta name="description" content="流光转码：在你的浏览器内批量转换音频、短视频、图片和字幕，媒体文件不上传服务器。">
+  <meta name="description" content="在浏览器内批量转换音频、短视频、图片和字幕，媒体文件不上传服务器。">
   <meta name="theme-color" content="#f6f5f1"><link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <title>流光转码 PrismTranscode — 在线媒体工作台</title>
 </head>
 <body>
-  <header class="header"><a class="brand" href="/" aria-label="流光转码首页"><span class="mark">P<span>↗</span></span><span>流光转码<small>PrismTranscode</small></span></a><nav aria-label="主导航"><a class="nav-current" href="#workspace">在线工作台</a><a href="#about">使用说明</a><a href="https://github.com/Yangjunjie-Lin/PrismTranscode" target="_blank" rel="noreferrer">GitHub ↗</a><a class="desktop-link" href="https://github.com/Yangjunjie-Lin/PrismTranscode/releases" target="_blank" rel="noreferrer">下载桌面版 <span>↓</span></a></nav></header>
+  <header class="header">
+    <a class="brand" href="/" data-i18n-aria="brand.home" aria-label="流光转码首页"><span class="mark">P<span>↗</span></span><span><span data-i18n="brand.name">流光转码</span><small data-i18n="brand.subtitle">PrismTranscode</small></span></a>
+    <nav data-i18n-aria="nav.label" aria-label="主导航">
+      <a class="nav-current" href="#workspace" data-i18n="nav.workspace">在线工作台</a>
+      <a href="#about" data-i18n="nav.help">使用说明</a>
+      <a href="https://github.com/Yangjunjie-Lin/PrismTranscode" target="_blank" rel="noreferrer">GitHub ↗</a>
+      <a class="desktop-link" href="https://github.com/Yangjunjie-Lin/PrismTranscode/releases" target="_blank" rel="noreferrer" data-i18n="nav.desktop">下载桌面版 ↓</a>
+      <select id="languageSelect" class="language-select" data-i18n-aria="language.label" aria-label="界面语言 / Language">
+        <option value="auto" data-i18n="language.auto">跟随浏览器</option><option value="zh" lang="zh-CN">中文</option><option value="en" lang="en">English</option>
+      </select>
+    </nav>
+  </header>
   <main>
-    <section class="hero"><div><div class="eyebrow"><span></span> YOUR FILES. YOUR DEVICE.</div><h1>格式自由，<br>原作<span class="hero-accent">留在你手里。</span></h1><p>从一段声音，到每一帧画面。<br>打开浏览器，让文件成为你需要的格式。</p><div class="hero-badges"><span>↳ 无需安装</span><span>◉ 媒体不上传</span><span>⌘ 开源工作台</span></div></div><div class="format-art" aria-hidden="true"><div class="art-label">ONE INPUT. NEW POSSIBILITIES.</div><div class="format-row"><span>WAV</span><i>→</i><b>MP3 <small>♫</small></b></div><div class="format-row"><span>MOV</span><i>→</i><b>MP4 <small>▶</small></b></div><div class="format-row"><span>PNG</span><i>→</i><b>WEBP <small>◈</small></b></div><div class="art-footer"><span>POWERED BY FFMPEG</span><span>100% IN-BROWSER ↗</span></div></div></section>
-    <section class="workspace-heading" id="workspace"><div><span class="section-kicker">THE WORKBENCH</span><h2>你的转换工作台<span class="beta">2.1 BETA</span></h2></div><div id="engineStatus" class="engine-status" role="status">○ 引擎按需加载 · 约 32 MB</div></section>
+    <section class="hero"><div>
+      <div class="eyebrow"><span></span><b data-i18n="hero.eyebrow">你的文件，你的设备。</b></div>
+      <h1><span data-i18n="hero.line1">格式自由，</span><br><span data-i18n="hero.line2">原作</span><span class="hero-accent" data-i18n="hero.accent">留在你手里。</span></h1>
+      <p class="translated-lines" data-i18n="hero.description">从一段声音，到每一帧画面。打开浏览器，让文件成为你需要的格式。</p>
+      <div class="hero-badges"><span data-i18n="hero.noInstall">↳ 无需安装</span><span data-i18n="hero.private">◉ 媒体不上传</span><span data-i18n="hero.openSource">⌘ 开源工作台</span></div>
+    </div><div class="format-art" aria-hidden="true">
+      <div class="art-label" data-i18n="art.title">一个输入，更多可能。</div>
+      <div class="format-row"><span>WAV</span><i>→</i><b>MP3 <small>♫</small></b></div><div class="format-row"><span>MOV</span><i>→</i><b>MP4 <small>▶</small></b></div><div class="format-row"><span>PNG</span><i>→</i><b>WEBP <small>◈</small></b></div>
+      <div class="art-footer"><span data-i18n="art.engine">由 FFMPEG 驱动</span><span data-i18n="art.local">全部在浏览器内完成 ↗</span></div>
+    </div></section>
+    <section class="workspace-heading" id="workspace"><div><span class="section-kicker" data-i18n="workspace.kicker">媒体工作台</span><h2><span data-i18n="workspace.title">你的转换工作台</span><span class="beta">2.1 BETA</span></h2></div><div id="engineStatus" class="engine-status" role="status"></div></section>
     <div id="notice" role="alert" class="notice" hidden></div>
     <div class="workspace">
-      <section class="queue-panel" aria-label="转换队列"><div class="panel-heading"><h3><span>01</span> 添加文件</h3><span id="fileCount" class="muted">0 个文件</span></div>
-        <button id="dropzone" class="dropzone"><span class="upload-icon">↥</span><strong>把文件拖到这里</strong><span>或 <em>点击选择文件</em></span><small>音频、短视频、图片、文本字幕 · 单文件 ≤ 128 MiB</small></button><input id="fileInput" type="file" multiple hidden>
-        <div class="queue-toolbar"><span id="queueSummary">原文件不修改，结果由你下载保存。</span><button id="clear" class="text-button" disabled>清空队列</button></div>
-        <div id="empty" class="empty"><span>⇄</span><p>还没有待转换的文件</p><small>每个文件都能选择自己的目标格式</small></div>
+      <section class="queue-panel" data-i18n-aria="queue.label" aria-label="转换队列">
+        <div class="panel-heading"><h3><span>01</span><b data-i18n="queue.add">添加文件</b></h3><span id="fileCount" class="muted"></span></div>
+        <button id="dropzone" class="dropzone"><span class="upload-icon">↥</span><strong data-i18n="drop.title">把文件拖到这里</strong><span><span data-i18n="drop.or">或</span> <em data-i18n="drop.browse">点击选择文件</em></span><small data-i18n="drop.limit">音频、短视频、图片、文本字幕 · 单文件 ≤ 128 MiB</small></button><input id="fileInput" type="file" multiple hidden>
+        <div class="queue-toolbar"><span id="queueSummary"></span><button id="clear" class="text-button" disabled data-i18n="queue.clear">清空队列</button></div>
+        <div id="empty" class="empty"><span>⇄</span><p data-i18n="queue.empty">还没有待转换的文件</p><small data-i18n="queue.emptyHint">每个文件都能选择自己的目标格式</small></div>
         <ol id="queue" class="queue"></ol>
-        <div class="queue-bottom"><span>◉ 仅在当前浏览器内处理</span><button id="export" class="text-button" disabled>导出转换记录 ↗</button></div>
+        <div class="queue-bottom"><span data-i18n="queue.local">◉ 仅在当前浏览器内处理</span><button id="export" class="text-button" disabled data-i18n="queue.export">导出转换记录 ↗</button></div>
       </section>
-      <aside class="settings-panel" aria-label="输出设置"><div class="panel-heading"><h3><span>02</span> 设置输出</h3><span class="muted">默认参数</span></div>
-        <div class="settings-content"><div id="categories" class="categories" role="group" aria-label="格式类别"><button data-kind="audio" class="active" aria-pressed="true">音频</button><button data-kind="video" aria-pressed="false">视频</button><button data-kind="image" aria-pressed="false">图片</button><button data-kind="subtitle" aria-pressed="false">字幕</button></div>
-        <label for="target">目标格式</label><select id="target"></select><p id="targetHint" class="hint"></p>
-        <label for="quality">质量偏好</label><select id="quality"><option value="balanced">均衡 · 日常推荐</option><option value="high">高质量 · 较大文件</option><option value="small">小体积 · 更多压缩</option></select>
-        <details><summary>裁剪与视频尺寸 <span>＋</span></summary><div class="detail-fields"><div><label for="start">开始时间 / 秒</label><input id="start" type="number" min="0" max="86400" step="0.1" value="0"></div><div><label for="duration">时长 / 秒</label><input id="duration" type="number" min="0" max="86400" step="0.1" value="0"></div></div><small class="muted">时长为 0 表示直到结束；GIF 最长 10 秒。</small><label for="resolution">视频尺寸上限</label><select id="resolution"><option value="0">原始尺寸</option><option value="480">480p</option><option value="720">720p</option><option value="1080">1080p</option></select></details>
-        <button id="apply" class="apply-button" disabled>将参数应用到未完成任务</button>
-        <div class="quality-note"><span>✳</span><p><b>保留真实，不虚构提升。</b><br>无损格式不会恢复原本丢失的细节。</p></div>
-        <button id="startButton" class="start-button" disabled>开始转换 <span>→</span></button><button id="stopButton" class="stop-button" hidden>停止当前批次</button><p class="settings-footnote">第一次转换时下载引擎。大文件、NCM 和 GPU 编码请使用桌面版。</p>
+      <aside class="settings-panel" data-i18n-aria="settings.label" aria-label="输出设置">
+        <div class="panel-heading"><h3><span>02</span><b data-i18n="settings.title">设置输出</b></h3><span class="muted" data-i18n="settings.defaults">默认参数</span></div>
+        <div class="settings-content">
+          <div id="categories" class="categories" role="group" data-i18n-aria="settings.categories" aria-label="格式类别"><button data-kind="audio" class="active" aria-pressed="true" data-i18n="kind.audio">音频</button><button data-kind="video" aria-pressed="false" data-i18n="kind.video">视频</button><button data-kind="image" aria-pressed="false" data-i18n="kind.image">图片</button><button data-kind="subtitle" aria-pressed="false" data-i18n="kind.subtitle">字幕</button></div>
+          <label for="target" data-i18n="settings.target">目标格式</label><select id="target"></select><p id="targetHint" class="hint"></p>
+          <label for="quality" data-i18n="settings.quality">质量偏好</label><select id="quality"><option value="balanced" data-i18n="quality.balanced">均衡 · 日常推荐</option><option value="high" data-i18n="quality.high">高质量 · 较大文件</option><option value="small" data-i18n="quality.small">小体积 · 更多压缩</option></select>
+          <details><summary><b data-i18n="settings.advanced">裁剪与视频尺寸</b><span>＋</span></summary><div class="detail-fields"><div><label for="start" data-i18n="settings.start">开始时间 / 秒</label><input id="start" type="number" min="0" max="86400" step="0.1" value="0"></div><div><label for="duration" data-i18n="settings.duration">时长 / 秒</label><input id="duration" type="number" min="0" max="86400" step="0.1" value="0"></div></div><small class="muted" data-i18n="settings.durationHint">时长为 0 表示直到结束；GIF 最长 10 秒。</small><label for="resolution" data-i18n="settings.resolution">视频尺寸上限</label><select id="resolution"><option value="0" data-i18n="settings.originalSize">原始尺寸</option><option value="480">480p</option><option value="720">720p</option><option value="1080">1080p</option></select></details>
+          <button id="apply" class="apply-button" disabled data-i18n="settings.apply">将参数应用到未完成任务</button>
+          <div class="quality-note"><span>✳</span><p><b data-i18n="settings.truth">保留真实，不虚构提升。</b><br><span data-i18n="settings.lossless">无损格式不会恢复原本丢失的细节。</span></p></div>
+          <button id="startButton" class="start-button" disabled><b data-i18n="settings.startButton">开始转换</b><span>→</span></button><button id="stopButton" class="stop-button" hidden data-i18n="settings.stop">停止当前批次</button><p class="settings-footnote" data-i18n="settings.footnote">第一次转换时下载引擎。大文件、NCM 和 GPU 编码请使用桌面版。</p>
         </div>
       </aside>
     </div>
-    <section class="about" id="about"><div><span class="section-kicker">MADE TO STAY LOCAL</span><h2>在线使用，<br>不等于上传云端。</h2><p>网站与引擎通过网络加载，媒体内容只进入浏览器内存。没有账号，没有媒体上传接口，没有追踪脚本。</p></div><div class="faq"><details open><summary>在线版适合哪些文件？</summary><p>音频、短视频、静态图片和文本字幕。支持 14 个输出预设，具体可用项由引擎检测。建议使用最新版桌面 Chrome、Edge 或 Firefox；移动设备可能因内存不足而失败。</p></details><details><summary>和桌面版有什么区别？</summary><p>桌面版提供 38 个输出预设、NCM、本地路径输入、多任务并行及硬件编码选项。在线版单文件最多 128 MiB，输入队列总计最多 384 MiB，逐个处理，无 GPU 加速；HDR 转图片或视频会明确拒绝。</p></details><details><summary>我的文件会保存多久？</summary><p>只保留在当前标签页内存中，刷新或关闭页面即丢失。请逐个点击下载保存结果；清空或移除任务会释放对应结果。转换记录也只有你主动导出时才保存。</p></details><details><summary>哪些内容不在本版保证范围内？</summary><p>复杂多轨、附件和所有元数据的完整迁移、HDR 色调映射、超大文件以及不可信媒体安全认证。视频只保留第一条画面和第一条音轨。FFmpeg WebAssembly 使用 GPL 组件，详见许可说明。</p></details></div></section>
-  </main><footer><span>流光转码 <b>PrismTranscode</b><small>开源媒体工具 · 社区预发布</small></span><div><a href="/THIRD_PARTY_NOTICES.txt">第三方许可</a><a href="https://github.com/Yangjunjie-Lin/PrismTranscode/issues" target="_blank" rel="noreferrer">问题反馈 ↗</a><span>让格式少一点阻碍。</span></div></footer>
+    <section class="about" id="about"><div><span class="section-kicker" data-i18n="about.kicker">为本地处理而设计</span><h2 class="translated-lines" data-i18n="about.title">在线使用，不等于上传云端。</h2><p data-i18n="about.description">网站与引擎通过网络加载，媒体内容只进入浏览器内存。没有账号，没有媒体上传接口，没有追踪脚本。</p><a id="guideLink" class="guide-link" href="https://github.com/Yangjunjie-Lin/PrismTranscode/blob/main/docs/USAGE.zh-CN.md" target="_blank" rel="noreferrer" data-i18n="about.guide">阅读完整使用指南 ↗</a></div>
+      <div class="faq"><details open><summary data-i18n="faq.files.title">在线版适合哪些文件？</summary><p data-i18n="faq.files.body"></p></details><details><summary data-i18n="faq.desktop.title">和桌面版有什么区别？</summary><p data-i18n="faq.desktop.body"></p></details><details><summary data-i18n="faq.storage.title">我的文件会保存多久？</summary><p data-i18n="faq.storage.body"></p></details><details><summary data-i18n="faq.limits.title">哪些内容不在本版保证范围内？</summary><p data-i18n="faq.limits.body"></p></details></div>
+    </section>
+  </main>
+  <footer><span><span data-i18n="brand.name">流光转码</span><small data-i18n="footer.beta">开源媒体工具 · 社区预发布</small></span><div><a id="licenseLink" href="/THIRD_PARTY_NOTICES.txt" data-i18n="footer.licenses">第三方许可</a><a href="https://github.com/Yangjunjie-Lin/PrismTranscode/issues" target="_blank" rel="noreferrer" data-i18n="footer.issues">问题反馈 ↗</a><span data-i18n="footer.tagline">让格式少一点阻碍。</span></div></footer>
   <script type="module" src="/app.js"></script>
 </body></html>

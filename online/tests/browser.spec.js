@@ -3,6 +3,7 @@ import { readFile } from 'node:fs/promises';
 import { createHash } from 'node:crypto';
 import path from 'node:path';
 import { TARGETS } from '../convert.js';
+test.use({ locale: 'zh-CN' });
 const fixture = path.resolve('testdata/tone.mp3');
 test('all 14 output presets convert real synthetic media', async ({ page }) => {
   if (process.env.PRISM_DEBUG) page.on('console', message => { if (!/^\s*[VAS. ][FSXBD. ]{5}/.test(message.text())) console.log(message.text()); });

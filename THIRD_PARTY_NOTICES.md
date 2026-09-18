@@ -1,5 +1,7 @@
 # 技术来源与第三方说明
 
+**简体中文** · [English](THIRD_PARTY_NOTICES.en.md)
+
 ## 2.1 在线版新增组件（2026-09-18）
 
 - `@ffmpeg/ffmpeg 0.12.15`：MIT JavaScript Worker 包装器，版权归 Jerome Wu 与 ffmpeg.wasm 贡献者。

@@ -8,7 +8,7 @@
     "dev": "vite --config online/vite.config.js --host 127.0.0.1",
     "build": "node scripts/prepare-online.mjs && vite build --config online/vite.config.js",
     "preview": "vite preview --config online/vite.config.js --host 127.0.0.1",
-    "test": "node --test online/tests/unit.test.js",
+    "test": "node --test online/tests/*.test.js",
     "test:e2e": "playwright test",
     "check": "npm test && npm run build"
   },
